@@ -11,5 +11,5 @@ RUN echo "==> fetch all sbt jars from Maven repo..."       && \
     sbt
 
 ENTRYPOINT ["sbt"]
-CMD ["version"]
+CMD ["--version"]
 
