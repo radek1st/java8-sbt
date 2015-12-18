@@ -6,8 +6,8 @@ ENV SBT_JAR      https://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/s
 ADD  $SBT_JAR  /usr/local/bin/sbt-launch.jar
 COPY sbt.sh    /usr/local/bin/sbt
 
-RUN sed -i '' 's/PASS_MAX_DAYS.*/PASS_MAX_DAYS\ 90/' /etc/login.defs && \ 
-    sed -i '' 's/PASS_MIN_LEN.*/PASS_MIN_LEN >= 8/' /etc/login.defs && \ 
+RUN sed -i 's/PASS_MAX_DAYS.*/PASS_MAX_DAYS\ 90/' /etc/login.defs && \ 
+    sed -i 's/PASS_MIN_LEN.*/PASS_MIN_LEN\ >=\ 8/' /etc/login.defs && \ 
     echo "==> fetch all sbt jars from Maven repo..."       && \
     echo "==> [CAUTION] this may take several minutes!!!"  && \
     sbt
